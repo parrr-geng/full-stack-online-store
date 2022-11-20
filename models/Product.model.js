@@ -9,4 +9,7 @@ const productSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: "User"
     }
-})
+});
+
+const Product = model("Product", productSchema);
+module.exports = Product;

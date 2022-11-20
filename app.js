@@ -12,7 +12,6 @@ const express = require("express");
 // Handles the handlebars
 // https://www.npmjs.com/package/hbs
 const hbs = require("hbs");
-
 const app = express();
 
 // ℹ️ This function is getting exported from the config folder. It runs most pieces of middleware
@@ -28,7 +27,7 @@ app.locals.appTitle = `${capitalize(projectName)} created with IronLauncher`;
 const indexRoutes = require("./routes/index.routes");
 app.use("/", indexRoutes);
 
-const usersRoutes = require("./routes/products.routes");
+const usersRoutes = require("./routes/users.routes");
 app.use("/", usersRoutes);
 
 const productsRoutes = require("./routes/products.routes");
