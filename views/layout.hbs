@@ -10,33 +10,59 @@
    </head>
 
    <body>
-      <div>
-         <nav>
-            <ul>
-               <li>Home</li>
-               <li>Buy</li>
-               <li>Sell</li>
-            </ul>
-         </nav>
-      </div>
-      <div>
-         {{{body}}}
-      </div>
-      <footer>
-         <div>
-            <div>123456789</div>
-         </div>
-         <div>
-            <div>Title</div>
-         </div>
-         <div>
-            <p>About</p>
-            <p>Terms and Conditions</p>
-            <div><a href="">Contact</a></div>
-         </div>
-      </footer>
+      <!-- for the whole screen-->
+      <div class="flex flex-col h-screen justify-between">
+         <div class="grid grid-cols-3">
+            <div class="p-3 flex flex-col justify-between">
 
-      
+               <nav>
+                  <ul class="text-xl">
+                     <li><a href="/">Home</a></li>
+                     <li>Buy</li>
+                     <li>Sell</li>
+                  </ul>
+               </nav>
+               <br>
+               
+               <div class="flex flex-row justify-between">
+                  <a href="/cart">CART</a>
+                  <a href="/login">MY ACCOUNT</a>
+               </div>
+            </div>
+
+            <div class="p-3 flex flex-col">
+               <div class="h-10">
+                  <form action="" method="POST">
+                     <input class="border" type="text" name="search" placeholder="SEARCH">
+                     <button type="submit">SEARCH</button>
+                  </form>
+
+               </div>
+               <div>
+                  {{{body}}}
+               </div>
+            </div>
+
+         </div>
+         
+
+         
+         <footer class="border-black border-t p-3 h-12 flex flex-row justify-between">
+            <div class="flex flex-row justify-between">
+               <div class="pr-3">+49 030 6455 7809</div>
+               <div class="pr-3">Street, Postcode, City</div>
+            </div>
+            <div>
+               <div>Title</div>
+            </div>
+            <div class="flex flex-row justify-between">
+               <p class="pr-3">About</p>
+               <p class="pr-3">Terms and Conditions</p>
+               <div><a href="">Contact</a></div>
+            </div>
+         </footer>
+
+      </div>
 
       <script src="/js/script.js"></script>
    </body>

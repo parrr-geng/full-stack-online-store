@@ -1,8 +1,13 @@
-<h2>CREATE ACCOUNT</h2>
-<form action="/signup" method="POST">
-    <input type="text" name="firstName" placeholder="FIRST NAME">
-    <input type="text" name="lastName" placeholder="LAST NAME">
-    <input type="email" name="email" placeholder="EMAIL">
-    <input type="password" name="password" placeholder="PASSWORD">
-    <button type="submit">CREATE</button>
+<h2 class="text-xl m-2">CREATE ACCOUNT</h2>
+
+<form class="flex flex-col" action="/signup" method="POST">
+    <input class="border w-40" type="text" name="firstName" placeholder="FIRST NAME">
+    <input class="border w-40" type="text" name="lastName" placeholder="LAST NAME">
+    <input class="border w-40" type="email" name="email" placeholder="EMAIL">
+    <input class="border w-40" type="password" name="password" placeholder="PASSWORD">
+    <button class="" type="submit">CREATE</button>
 </form>
+
+{{#if message}}
+<h4>{{message}}</h4>
+{{/if}}
