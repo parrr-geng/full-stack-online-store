@@ -6,11 +6,11 @@
         <h2>MY LISTINGS</h2>
 
         {{#each products}}
-            <h2>{{name}}</h2>
+            <h2 class="mt-4">{{title}}</h2>
             <h4>{{description}}</h4>
-            <img src="{{imgPath}}" alt="Photo for {{name}}" height="200px">
+            <img class="w-48" src="{{imgPath}}" alt="Photo for {{name}}">
             <h3>Delete this listing 
-                <a href="">❌</a>
+                <a href="products/{{_id}}/delete">❌</a>
             </h3>
         {{else}}
 	        <h2>There are no listings yet.</h2>

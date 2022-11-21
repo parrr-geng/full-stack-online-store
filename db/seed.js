@@ -1,9 +1,8 @@
 const mongoose = require("mongoose");
 const Product = require("../models/product.model");
+require("dotenv/config");
 
-const MONGO_URI =
-  process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/full-stack-online-store";
-
+const MONGO_URI = process.env.MONGODB_URI;
 
 const Products = [
   {
@@ -42,6 +41,8 @@ const Products = [
       "count": 500
     }
   }
+];
+
 
 mongoose
   .connect(MONGO_URI)
@@ -49,7 +50,7 @@ mongoose
     console.log(`Connected to Mongo database: "${x.connections[0].name}"`);
 
     // Create new documents in the products collection
-    return Product.create(products);
+    return Product.create(Products);
   })
   .then((productsFromDB) => {
     console.log(`Created ${productsFromDB.length} products`);
