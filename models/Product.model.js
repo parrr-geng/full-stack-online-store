@@ -6,7 +6,7 @@ const productSchema = new Schema({
     description: String,
     category: {
         type: String,
-        enum: ["cycling", "fitness", "yoga", "basketball", "football", "men's clothing"]
+        enum: ["cycling", "fitness", "yoga", "basketball", "football", "men's clothing", "women's clothing"]
     },
     image: String,
     imgName: String,
@@ -15,7 +15,8 @@ const productSchema = new Schema({
     seller: {
         type: Schema.Types.ObjectId,
         ref: "User"
-    }
+    },
+    rating: Array
 });
 
 const Product = model("Product", productSchema);
