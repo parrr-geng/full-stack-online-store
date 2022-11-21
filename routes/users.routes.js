@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const bcryptjs = require("bcryptjs");
 const User = require("../models/User.model");
+const Product = require("../models/Product.model");
 
 /* GET signup page */
 router.get("/signup", (req, res, next)=>{
@@ -18,7 +19,7 @@ router.post("/signup", (req, res, next)=>{
         res.render("users/signup.hbs", {message: "Password should have at least 6 characters."})
     }
 
-    User.findOne(email)
+    User.findOne({email})
     .then((userFromDB)=>{
         if (userFromDB){
             res.render("users/signup.hbs", {message: "This email has already been registered."});
@@ -32,9 +33,11 @@ router.post("/signup", (req, res, next)=>{
                 res.redirect("/login");
             })
         }
-
     })
-    .catch(err => next(err));
+    .catch(err => {
+        console.log(err);
+        next(err);
+    });
 })
 
 /* GET login page */
@@ -60,11 +63,13 @@ router.post("/login", (req, res, next) => {
         req.session.user = userFromDB
         res.redirect("/profile")
       } else {
-        res.render("login.hbs", { message: "Wrong credentials" })
+        res.render("users/login.hbs", { message: "Wrong credentials" })
         return;
       }
     })
 })
+
+
 
 
 module.exports = router;
