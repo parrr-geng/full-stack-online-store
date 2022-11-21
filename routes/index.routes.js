@@ -1,11 +1,14 @@
 const router = require("express").Router();
 
-//const Product = require('../models/Product.model.js')
-
+const Product = require('../models/Product.model.js')
 
 /* GET home page */
 router.get("/", (req, res, next) => {
-  res.render("index");
+  Product.find()
+    .then((productInfo) => {
+        res.render('index', { products: productInfo});
+    }).catch(err => console.log(err))
+    
 });
 
 
