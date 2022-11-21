@@ -80,6 +80,11 @@ router.get("/profile", (req, res, next)=>{
     res.render("users/profile.hbs", {userInSession: req.session.currentUser});
 })
 
+// Logout
+router.get("/logout", (req, res, next) => {
+    req.session.destroy()
+    res.redirect("/")
+  })
 
 
 module.exports = router;

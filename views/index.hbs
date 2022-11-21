@@ -1,2 +1,10 @@
-
-<h2>Main Page</h2>
+<div class="home">
+    {{#each product}}
+        <img src="{{image}}" alt="product image">
+        <p>{{title}}</p>
+        <p>{{price}}</p>
+        {{#each rating}}
+            <p>{{rate}}</p>
+        {{/each}}
+    {{/each}}
+</div>
