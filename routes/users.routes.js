@@ -32,7 +32,7 @@ router.post("/signup", (req, res, next)=>{
                 res.redirect("/login");
             })
         }
-        
+
     })
     .catch(err => next(err));
 })
@@ -42,6 +42,29 @@ router.get("/login", (req, res, next) => {
     res.render("users/login.hbs")
   })
 /* Post login info */
+router.post("/login", (req, res, next) => {
+  const { email, password } = req.body
+
+  // Find user
+  User.findOne({ email })
+    .then(userFromDB => {
+      if (userFromDB === null) {
+        // User not found
+        res.render("login", { message: "User not found" })
+        return;
+      }
+      // User found in database
+      // Check if password from input form matches hashed password from database
+      if (bcryptjs.compareSync(password, userFromDB.password)) {
+        // Password is correct => Login user
+        req.session.user = userFromDB
+        res.redirect("/profile")
+      } else {
+        res.render("login.hbs", { message: "Wrong credentials" })
+        return;
+      }
+    })
+})
 
 
 module.exports = router;
