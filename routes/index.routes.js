@@ -1,6 +1,5 @@
 const router = require("express").Router();
-
-//const Product = require('../models/Product.model.js')
+const Product = require('../models/Product.model.js')
 
 
 /* GET home page */

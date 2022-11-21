@@ -42,7 +42,12 @@ router.post("/signup", (req, res, next)=>{
 
 /* GET login page */
 router.get("/login", (req, res, next) => {
-    res.render("users/login.hbs")
+    if(req.session.currentUser){
+        console.log(req.session.currentUser);
+        res.redirect("/profile");
+    } else {  
+        res.render("users/login.hbs");
+    }
   })
 
 /* Post login info */
@@ -76,9 +81,30 @@ router.post("/login", (req, res, next) => {
 
 /* GET profile page */
 router.get("/profile", (req, res, next)=>{
-    const{ userId } = req.params;
-    res.render("users/profile.hbs", {userInSession: req.session.currentUser});
+   
+    Product.find({seller: req.session.currentUser._id})
+    .then(productsFromDB => {
+        res.render("users/profile.hbs", {products: productsFromDB, userInSession: req.session.currentUser});
+    })
+    .catch(err => {
+        console.log(err);
+        next(err);
+    })
+});
+
+
+router.get("/products/:productId/delete", (req, res, next)=>{
+    const { productId } = req.params;
+
+    Product.findByIdAndDelete( productId )
+    .then(()=>{
+        res.redirect("/profile");
+    })
+    .catch(err => {
+        console.log(err);
+        next(err)});
 })
+
 
 // Logout
 router.get("/logout", (req, res, next) => {
