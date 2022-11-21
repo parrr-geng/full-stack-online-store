@@ -1,9 +1,17 @@
 <h2 class="text-xl m-2">CREATE A NEW LISTING</h2>
+{{#if userInSession}}
 
-<form class="flex flex-col" action="/product/add" method="POST" enctype="multipart/form-data">
-    <input type="text" name="name" placeholder="NAME">
-    <input type="text" name="description" placeholder="DESCRIPTION">
+<form class="flex flex-col" action="/profile/add-product" method="POST" enctype="multipart/form-data">
+    <input type="text" name="title" placeholder="TITLE">
     <input type="number" name="price" placeholder="0">
+    <input type="text" name="description" placeholder="DESCRIPTION">
+    <select name="category">
+        <option value="cycling">Cycling</option>
+        <option value="fitness">Fitness</option>
+        <option value="basketball">Basketball</option>
+        <option value="football">Football</option>
+        <option value="yoga">Yoga</option>
+    </select>
     <input type="file" name="productImage">
 
     <button type="submit">ADD</button>
@@ -11,4 +19,8 @@
 
 {{#if message}}
 <h4>{{message}}</h4>
+{{/if}}
+
+{{else}}
+    <div>You're not logged in yet!</div>
 {{/if}}

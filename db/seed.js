@@ -4,6 +4,7 @@ const Product = require("../models/product.model");
 const MONGO_URI =
   process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/full-stack-online-store";
 
+
 const Products = [
   {
     "id": 1,
@@ -41,8 +42,6 @@ const Products = [
       "count": 500
     }
   }
-];
-
 
 mongoose
   .connect(MONGO_URI)

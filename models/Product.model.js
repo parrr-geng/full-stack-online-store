@@ -1,9 +1,14 @@
 const {Schema, model} = require('mongoose');
 
 const productSchema = new Schema({
-    name: String,
-    description: String,
+    title: String,
     price: Number,
+    description: String,
+    category: {
+        type: String,
+        enum: ["cycling", "fitness", "yoga", "basketball", "football"]
+    },
+    image: String,
     imgName: String,
     imgPath: String,
     publicId: String,

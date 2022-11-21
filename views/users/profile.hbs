@@ -1,6 +1,7 @@
+{{#if userInSession}}
 <h2 class="text-xl m-2">MY ACCOUNT</h2>
 
-<div class="flex flex-row">
+<div class="flex flex-row justify-between">
     <div>
         <h2>MY LISTINGS</h2>
 
@@ -8,20 +9,24 @@
             <h2>{{name}}</h2>
             <h4>{{description}}</h4>
             <img src="{{imgPath}}" alt="Photo for {{name}}" height="200px">
-            <h3>Delete this movie 
-                <a href="/product/delete/{{_id}}">❌</a>
+            <h3>Delete this listing 
+                <a href="">❌</a>
             </h3>
         {{else}}
 	        <h2>There are no listings yet.</h2>
         {{/each}}
 
-        <a href="/product/add">ADD A LISTING</a>
+        <a href="/profile/add-product">ADD A LISTING</a>
 
     </div>
     <div>
         <h2>ACCOUNT DETAILS</h2>
-
+        <h2>Hi {{userInSession.firstName}}!</h2>
+        <h2>Email:{{userInSession.email}}</h2>
+        <h2>Manage Your Addresses</h2>
     </div>
     <a href="/logout">Logout</a>
 </div>
-
+{{else}}
+    <div>You're not logged in yet!</div>
+{{/if}}
