@@ -1,0 +1,14 @@
+<h2 class="text-xl m-2">CREATE A NEW LISTING</h2>
+
+<form class="flex flex-col" action="/product/add" method="POST" enctype="multipart/form-data">
+    <input type="text" name="name" placeholder="NAME">
+    <input type="text" name="description" placeholder="DESCRIPTION">
+    <input type="number" name="price" placeholder="0">
+    <input type="file" name="productImage">
+
+    <button type="submit">ADD</button>
+</form>
+
+{{#if message}}
+<h4>{{message}}</h4>
+{{/if}}

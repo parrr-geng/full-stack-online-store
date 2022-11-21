@@ -1,0 +1,26 @@
+<h2 class="text-xl m-2">MY ACCOUNT</h2>
+
+<div class="flex flex-row">
+    <div>
+        <h2>MY LISTINGS</h2>
+
+        {{#each products}}
+            <h2>{{name}}</h2>
+            <h4>{{description}}</h4>
+            <img src="{{imgPath}}" alt="Photo for {{name}}" height="200px">
+            <h3>Delete this movie 
+                <a href="/product/delete/{{_id}}">❌</a>
+            </h3>
+        {{else}}
+	        <h2>There are no listings yet.</h2>
+        {{/each}}
+
+        <a href="/product/add">ADD A LISTING</a>
+
+    </div>
+    <div>
+        <h2>ACCOUNT DETAILS</h2>
+
+    </div>
+</div>
+
