@@ -5,17 +5,16 @@
 	
     <label for="password">Password: </label>
     <input type="password" name="password">
-	
+	   
     <label for="remember">Remember Me</label>
     <input type="checkbox" name="remember">
 
     <button type="submit">Login</button>
-
-    <ul>
-        <li><a href="/forgot-password">Forgot My Password</a></li>
-        <li><a href="/signup">Create Account</a></li>
-    </ul>
 </form>
+<ul>
+    <li><a href="/forgot-password">Forgot My Password</a></li>
+    <li><a href="/signup">Create Account</a></li>
+</ul>
 
 {{#if message}}
 	<h4 class="error">{{message}}</h4>

@@ -4,27 +4,24 @@ const Product = require("../models/product.model");
 const MONGO_URI =
   process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/full-stack-online-store";
 
-/*
+
+
 const products = [
   {
     name: "rockrider",
     description:
       "Raised position, stem can be raised up to 1.18 inch, ergonomic saddle: comfort that also yields greater efficiency. 27.5\" wheels, double disc brakes, 24 speeds.",
     price: 200,
-    
   },
   {
     name: "home trainer",
     description:
       "Simple and effective, the In'Ride 100 and its magnetic resistance allows you to vary the resistance between 7 different levels (adjustable shifter) and achieves up to 550 watts.",
     price: 110,
-    img:,
-    seller:
-  },
-
+  }
   
 ];
-*/
+
 
 mongoose
   .connect(MONGO_URI)
