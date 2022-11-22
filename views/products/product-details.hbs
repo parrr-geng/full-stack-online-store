@@ -4,5 +4,11 @@
 <p>${{product.price}}</p>
 <p>{{product.description}}</p>
 <p>Reviews: {{product.rating}}/10</p>
+
+<form action="/products/{{product._id}}/togglecart" method="POST">
+    <button type="submit">ADD TO CART</button>
+</form>
+    
+
 <hr>
 <a href="/products">Back</a>

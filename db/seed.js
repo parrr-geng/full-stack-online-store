@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const Product = require("../models/product.model");
+
 require("dotenv/config")
 const MONGO_URI = process.env.MONGO_URI || "mongodb://127.0.0.1:27017/full-stack-online-store";
 

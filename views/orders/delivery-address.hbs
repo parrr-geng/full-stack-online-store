@@ -1,0 +1,30 @@
+<h2>Delivery Address</h2>
+<div>
+    <p>{{userInSession.address}}</p>  
+    <button>Proceed with the defalt address</button>    
+</div>
+<form action="/placemyorder" method="POST">
+    <label for="fullName">
+        Full Name
+        <input id="fullName" type="text" name="fullName" placeholder="{{userInSession.firstName}} {{userInSession.lastName}}" required>
+    </label>
+    <label for="phoneNumber">
+        Phone number
+        <input id="phoneNumber" type="text" name="phoneNumber">
+    </label>
+    <label for="address">
+        Address
+        <input name="addressLine1" type="text" placeholder="Street name and number, pickup location" required>
+        <input name="addressLine2" type="text" placeholder="Company name, P.O.Box, c/o">
+    </label>
+    <label for="postcode">
+        Postcode
+        <input id="postcode" name="postcode" type="text" placeholder="12345" required>
+    </label>
+    <label for="city">
+        Town/City
+        <input id="city" name="city" type="text" placeholder="Town/City" required>
+    </label>
+
+    <button type="submit">Use this address</button>
+</form>

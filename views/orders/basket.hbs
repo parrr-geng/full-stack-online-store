@@ -1,0 +1,24 @@
+<h2>CART</h2>
+{{#if products}}
+    {{#each products}}
+        <div>
+            <div>
+                <img src="{{product.image}}" alt="product image">
+            </div>
+            <div>
+                <h3>{{title}}</h3>
+                <h3>{{price}}</h3>
+            </div>
+            <form action="/products/{{_id}}/togglecart" method="POST">
+                <button>Remove from the cart</button>
+            </form>
+        </div>
+    {{/each}}
+
+    <h4 id="totalPrice">Total: <span>{{totalPrice}}</span></h4>
+    <button><a href="/checkout">Proceed to Checkout</a></button>
+{{else}}
+<p>There is nothing in the basket yet.</p>
+{{/if}}
+
+
