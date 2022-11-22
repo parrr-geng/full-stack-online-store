@@ -22,7 +22,7 @@ router.post("/profile/add-product", uploader.single("productImage"), (req, res, 
     Product.create({title, price, description, category, imgName, imgPath, publicId, seller})
     .then(product => {
         console.log(product);
-        res.redirect("/profile") //<-- how can I specify id in this?
+        res.redirect("/profile") 
     })
     .catch(err => {
         console.log(err);
@@ -30,10 +30,7 @@ router.post("/profile/add-product", uploader.single("productImage"), (req, res, 
     });
 });
 
-
-
 // Get one product
-
 router.get("/products/:productId", (req, res, next) => {
     const { productId } = req.params;
     console.log("PARAMS!!!",req.params)
@@ -44,7 +41,28 @@ router.get("/products/:productId", (req, res, next) => {
         // Call the error-middleware to display the error page to the user
         next(error);
       });
-  });
+});
+
+//Add products into cart by toggle isInCart boolean value
+router.post("/products/:productId/togglecart", (req, res, next)=>{
+    const {productId} = req.params;
+
+    Product.findById(productId)
+    .then(product => {
+        if(product.isInCart){
+            Product.findByIdAndUpdate(productId, {isInCart: false})
+            .then(()=>{
+                res.redirect("/cart");
+            })
+        } else {
+            Product.findByIdAndUpdate(productId, {isInCart: true})
+            .then(productFromDB=>{
+                res.render("products/product-details.hbs", {product: productFromDB});
+            })
+        }
+    })
+    .catch(error => console.log(error));
+});
 
 
 module.exports = router;

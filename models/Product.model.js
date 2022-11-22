@@ -16,7 +16,11 @@ const productSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: "User"
     },
-    rating: Array
+    rating: Array,
+    isInCart : {
+        type: Boolean,
+        default: false
+    }
 });
 
 const Product = model("Product", productSchema);

@@ -34,6 +34,9 @@ app.use("/", usersRoutes);
 const productsRoutes = require("./routes/products.routes");
 app.use("/", productsRoutes);
 
+const ordersRoutes = require("./routes/orders.routes");
+app.use("/", ordersRoutes);
+
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);
 
