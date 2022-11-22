@@ -14,4 +14,9 @@ router.get("/all", (req, res, next) => {
     
 });
 
+// Get about page
+router.get("/about", (req, res, next) => {
+  res.render('information/about.hbs')
+})
+
 module.exports = router;
