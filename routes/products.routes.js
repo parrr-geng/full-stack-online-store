@@ -32,7 +32,6 @@ router.post("profile/add-product", uploader.single("productImage"), (req, res, n
 
 router.get("/products/:productId", (req, res, next) => {
     const { productId } = req.params;
-    console.log("PARAMS!!!",req.params)
     Product.findById(productId)
       .then((product) => res.render("products/product-details.hbs", { product: product }))
       .catch((error) => {
