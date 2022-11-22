@@ -1,16 +1,26 @@
-<div class="home">
-    <h2>Products:</h2>
-    {{#each products}}
-        <div class="main-page-products">
-            <article>
-                <a  href="/products/{{_id}}">
-                <img src="{{image}}" alt="product image" ></a>
-                <p>{{title}}</p>
-                <p>{{price}}</p>
-                {{#each rating}}
-                    <p>{{rate}}</p>
-                {{/each}}
-            </article>
-        </div>
-    {{/each}}
+<!-- <h2>Products:</h2> -->
+<div class="grid grid-cols-2">
+    <div class="relative mr-3 mb-3">
+        <img src="images/sports.jpg" alt="sports general">
+        <h2 class="absolute text-4xl text-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">SPORTS</h2>
+    </div>
+
+    <div class="relative mr-3 mb-3">
+        <img src="images/women.jpeg" alt="womens sport">
+        <h2 class="absolute text-4xl text-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">WOMEN</h2>
+    </div>
+
+    <div class="relative mr-3 mb-3">
+        <img src="images/man.jpeg" alt="mens sport">
+        <h2 class="absolute text-4xl text-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">MEN</h2>
+    </div>
+
+    <div class="relative mr-3 mb-3">
+        <img src="images/kids.jpeg" alt="kids sport">
+        <h2 class="absolute text-4xl text-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">KIDS</h2>
+    </div>
 </div>
+
+
+
+
