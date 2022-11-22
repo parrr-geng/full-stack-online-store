@@ -32,7 +32,6 @@ router.post("/profile/add-product", uploader.single("productImage"), (req, res, 
 
 
 
-
 // Get one product
 
 router.get("/products/:productId", (req, res, next) => {
