@@ -8,7 +8,7 @@
         {{#each products}}
             <h2 class="mt-4">{{title}}</h2>
             <h4>{{description}}</h4>
-            <img class="w-48" src="{{imgPath}}" alt="Photo for {{name}}">
+            <a href="/products/{{_id}}"><img class="w-48" src="{{imgPath}}" alt="Photo for {{name}}"></a>
             <h3>Delete this listing 
                 <a href="products/{{_id}}/delete">❌</a>
             </h3>
