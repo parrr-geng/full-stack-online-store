@@ -26,11 +26,10 @@
     {{/each}}
 
     <h4 id="totalPrice">Total: <span>{{totalPrice}}</span></h4>
-    <button><a href="/checkout">Proceed to Checkout</a></button>
 
 </div>
 <form action="/confirmmyorder" method="POST">
-    <button>Buy now</button>
+    <button class="space-x-3 items-center px-3 py-2 bg-green-400 hover:border rounded-full focus:ring focus:ring-black">Buy now</button>
 </form>
 
 {{!-- Paypal payment --}}

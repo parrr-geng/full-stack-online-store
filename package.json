@@ -8,6 +8,7 @@
     "devall": "concurrently \"nodemon server.js\" \"NODE_ENV=production tailwindcss build -i public/stylesheets/tailwind.css -o public/stylesheets/style.css --watch\""
   },
   "dependencies": {
+    "@paypal/paypal-js": "^5.1.2",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.1",
     "cloudinary": "^1.32.0",

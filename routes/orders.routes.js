@@ -19,6 +19,16 @@ router.get("/checkout", (req, res, next)=>{
     res.render("orders/delivery-address.hbs", {userInSession: req.session.currentUser});
 })
 
+router.get("/placemyorder", (req, res, next)=>{
+    Product.find({isInCart: true})
+        .then(productsFromDB => {
+            let totalPrice = calculateTotal(productsFromDB).toFixed(2);
+            res.render("orders/place-order.hbs", {products: productsFromDB, userInSession: req.session.currentUser, totalPrice: totalPrice});
+        })
+        .catch(error => console.log(error));
+
+});
+
 //POST the address form to update user database
 router.post("/placemyorder", (req, res, next)=>{
     const {fullName, phoneNumber, addressLine1, addressLine2, postcode, city} = req.body;

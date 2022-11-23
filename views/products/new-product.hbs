@@ -1,21 +1,32 @@
-<h2 class="text-xl m-2">CREATE A NEW LISTING</h2>
+<h2 class="text-2xl m-2">CREATE A NEW LISTING</h2>
+<br>
 {{#if userInSession}}
 
-<form class="flex flex-col" action="/profile/add-product" method="POST" enctype="multipart/form-data">
-    <input type="text" name="title" placeholder="TITLE">
-    <input type="number" name="price" placeholder="0">
-    <input type="text" name="description" placeholder="DESCRIPTION">
-    <select name="category">
-        <option value="cycling">Cycling</option>
-        <option value="fitness">Fitness</option>
-        <option value="basketball">Basketball</option>
-        <option value="football">Football</option>
-        <option value="yoga">Yoga</option>
-    </select>
-    <input type="file" name="productImage">
-
-    <button type="submit">ADD</button>
-</form>
+<div class="grid grid-cols-2">
+    <div>
+        <form class="flex flex-col" action="/profile/add-product" method="POST" enctype="multipart/form-data">
+            <input type="text" name="title" placeholder="TITLE">
+            <br>
+            <input type="number" name="price" placeholder="PRICE">
+            <br>
+            <textarea rows="6" name="description" placeholder="DESCRIPTION"></textarea>
+            <br>
+            <select name="category">        
+                <option value="sports">SPORTS</option>
+                <option value="men's clothing">MEN</option>
+                <option value="women's clothing">WOMEN</option>
+                <option value="kids clothing">KIDS</option>
+            </select>
+            <br>
+            <input type="file" name="productImage">
+            <br>
+            <div class="block">
+                <button type="submit">ADD</button>
+            </div>  
+        </form>
+    </div>
+    <div></div>
+</div>
 
 {{#if message}}
 <h4>{{message}}</h4>
