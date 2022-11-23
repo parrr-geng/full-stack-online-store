@@ -13,20 +13,22 @@
 
    <body>
       <!-- for the whole screen-->
-      <div class="flex flex-col h-screen justify-between">
+      <div class="flex flex-col">
          <div class="grid grid-cols-3">
             <div class="p-3 flex flex-col justify-between">
-
                <nav>
-                  <ul class="text-xl">
-                     <li><a href="/">Home</a></li>
-                     <li>Buy</li>
-                     <li>Sell</li>
+                  <ul class="text-l">
+                     <li><a href="/" class="font-bold text-xl">HOME</a></li>
+                     <li>SPORTS</li>
+                     <li>WOMEN</li>
+                     <li>MEN</li>
+                     <li>KIDS</li>
+                     <li><a href="/all">ALL</a></li>
                   </ul>
                </nav>
                <br>
                
-               <div class="flex flex-row justify-between">
+               <div class="fixed bottom-12 flex flex-col justify-between">
                   <a href="/cart">CART</a>
                   <a href="/login">MY ACCOUNT</a>
                </div>
@@ -44,12 +46,9 @@
                   {{{body}}}
                </div>
             </div>
-
          </div>
          
-
-         
-         <footer class="border-black border-t p-3 h-12 flex flex-row justify-between">
+         <footer class="fixed inset-x-0 bottom-0 border-black bg-white border-t p-3 h-12 flex flex-row justify-between">
             <div class="flex flex-row justify-between">
                <div class="pr-3">+49 030 6455 7809</div>
                <div class="pr-3">Street, Postcode, City</div>
