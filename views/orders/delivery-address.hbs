@@ -1,10 +1,10 @@
 <div class="grid grid-cols-2">
     <div>
-        <div class="text-2xl">Delivery Address</div>
+        <div class="text-2xl">DELIVERY ADDRESS</div>
     
         <div class="mt-5">
-            <p>{{userInSession.address}}</p>
-            <button>Proceed with the defalt address</button>
+            <p class="bg-gray-200">{{userInSession.address}}</p>
+            <button class="space-x-3 items-center px-3 py-2 bg-green-400 hover:border rounded-full focus:ring focus:ring-black"><a href="/placemyorder">PROCEED WITH THE DEFAULT ADDRESS</a></button>
         </div>
         <br>
 
@@ -33,7 +33,7 @@
             </label>
             <br>
             <div class="block">
-                <button type="submit">USE THIS ADDRESS</button>
+                <button class="space-x-3 items-center px-3 py-2 bg-green-400 hover:border rounded-full focus:ring focus:ring-black" type="submit">USE THIS ADDRESS</button>
             </div>
            
         </form>
