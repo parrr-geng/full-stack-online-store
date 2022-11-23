@@ -7,7 +7,7 @@ const productSchema = new Schema(
         description: String,
         category: {
             type: String,
-            enum: ["cycling", "fitness", "yoga", "basketball", "football", "men's clothing", "women's clothing", "sports"]
+            enum: ["cycling", "fitness", "yoga", "basketball", "football", "men's clothing", "women's clothing", "kids clothing", "sports"]
         },
         image: String,
         imgName: String,

@@ -11,9 +11,12 @@
             <p>Reviews: {{product.rating}}/10</p>
         </div>
         <div class="h-12 mb-12">
-            <p>${{product.price}}</p>
+            {{#if message}}
+            {{message}}
+            {{/if}}
+            <p>€{{product.price}}</p>
             <form action="/products/{{product._id}}/togglecart" method="POST">
-                <button type="submit">ADD TO CART</button>
+                <button class="visited:text-gray-300" type="submit">ADD TO CART</button>
             </form>
             <a class="" href="/products/all">Back</a>
         </div>
