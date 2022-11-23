@@ -1,72 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 
-   <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta http-equiv="X-UA-Compatible" content="ie=edge">
-      <title>{{appTitle}}</title>
-      <link rel="stylesheet" href="/stylesheets/style.css" />
-      <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
-	   <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
-   </head>
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>{{appTitle}}</title>
+   <link rel="stylesheet" href="/stylesheets/style.css" />
+   <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
+   <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
 
-   <body>
-      <!-- for the whole screen-->
-      <div class="flex flex-col">
-         <div class="grid grid-cols-3">
-            <div class="p-3 flex flex-col justify-between">
-               <nav>
-                  <ul class="text-l">
-                     <li><a href="/" class="font-bold text-xl">HOME</a></li>
-                     <li>SPORTS</li>
-                     <li>WOMEN</li>
-                     <li>MEN</li>
-                     <li>KIDS</li>
-                     <li><a href="/all">ALL</a></li>
-                  </ul>
-               </nav>
-               <br>
-               
-               <div class="fixed bottom-12 flex flex-col justify-between">
-                  <a href="/cart">CART</a>
-                  <a href="/login">MY ACCOUNT</a>
-               </div>
-            </div>
+</head>
 
-            <div class="p-3 flex flex-col col-span-2">
-               <div class="h-10">
-                  <form action="/search" method="POST">
-                     <input class="border" type="text" name="search" placeholder="SEARCH">
-                     <button type="submit">SEARCH</button>
-                  </form>
+<body>
+   <!-- for the whole screen-->
+   <div class="flex flex-col">
+      <div class="grid grid-cols-3">
+         <div class="p-3 flex flex-col justify-between">
+            <nav>
+               <ul class="text-l">
+                  <li><a href="/" class="font-bold text-xl">HOME</a></li>
+                  <li>SPORTS</li>
+                  <li>WOMEN</li>
+                  <li>MEN</li>
+                  <li>KIDS</li>
+                  <li><a href="/all">ALL</a></li>
+               </ul>
+            </nav>
+            <br>
 
-               </div>
-               <div>
-                  {{{body}}}
-               </div>
+            <div class="fixed bottom-12 flex flex-col justify-between">
+               <a href="/cart">CART</a>
+               <a href="/login">MY ACCOUNT</a>
             </div>
          </div>
-         
-         <footer class="fixed inset-x-0 bottom-0 border-black bg-white border-t p-3 h-12 flex flex-row justify-between">
-            <div class="flex flex-row justify-between">
-               <div class="pr-3">+49 030 6455 7809</div>
-               <div class="pr-3">Street, Postcode, City</div>
-               <a href="/location">FIND A STOCKIST</a>
+
+         <div class="p-3 flex flex-col col-span-2">
+            <div class="h-10">
+               <form action="/search" method="POST">
+                  <input class="border" type="text" name="search" placeholder="SEARCH">
+                  <button type="submit">SEARCH</button>
+               </form>
+
             </div>
             <div>
-               <div>Title</div>
+               {{{body}}}
             </div>
-            <div class="flex flex-row justify-between">
-               <p class="pr-3"><a href="/about">About</a></p>
-               <p class="pr-3">Terms and Conditions</p>
-               <div><a href="/contact">Contact</a></div>
-            </div>
-         </footer>
-
+         </div>
       </div>
 
-      <script src="/js/script.js"></script>
-   </body>
+      <footer class="fixed inset-x-0 bottom-0 border-black bg-white border-t p-3 h-12 flex flex-row justify-between">
+         <div class="flex flex-row justify-between">
+            <div class="pr-3">+49 030 6455 7809</div>
+            <div class="pr-3">Street, Postcode, City</div>
+            <a href="/location">FIND A STOCKIST</a>
+         </div>
+         <div>
+            <div>Title</div>
+         </div>
+         <div class="flex flex-row justify-between">
+            <p class="pr-3"><a href="/about">About</a></p>
+            <p class="pr-3">Terms and Conditions</p>
+            <div><a href="/contact">Contact</a></div>
+         </div>
+      </footer>
+
+   </div>
+
+   <script src="/js/script.js"></script>
+   <script src="https://www.paypal.com/sdk/js?client-id=test"></script>
+   <script>
+      paypal.Buttons().render("body");
+   </script>
+</body>
 
 </html>

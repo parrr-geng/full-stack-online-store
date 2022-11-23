@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const User = require("../models/User.model");
 const Product = require('../models/Product.model.js');
+const Cart = require("../models/Cart.model")
 const calculateTotal = require("../utils/calculateTotal");
 
 //GET the basket page to view all products in cart
