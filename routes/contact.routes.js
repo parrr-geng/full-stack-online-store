@@ -11,7 +11,6 @@ router.get("/contact", (req, res, next) => {
 })
 
 router.post("/contact", (req, res, next) => {
-    console.log("EMAILADRESS!!!!!!!!!!!!!!!!", req.body.email);
     const transporter = nodeMailer.createTransport({
         service: "Hotmail",
         auth: {
