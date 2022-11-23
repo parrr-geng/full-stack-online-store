@@ -67,7 +67,7 @@ router.post("/login", (req, res, next) => {
       if (bcryptjs.compareSync(password, userFromDB.password)) {
         // Password is correct => Login user
         req.session.currentUser = userFromDB;
-        res.render("users/profile.hbs", {userInSession: req.session.currentUser});    
+        res.redirect("/profile");    
       } else {
         res.render("users/login.hbs", { message: "Wrong credentials" })
         return;

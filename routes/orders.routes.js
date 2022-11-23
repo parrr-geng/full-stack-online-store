@@ -27,6 +27,10 @@ router.post("/placemyorder", (req, res, next)=>{
     ${addressLine2}
     ${postcode} ${city}
     ${phoneNumber}`;
+    
+    if(!req.session.currentUser){
+        res.redirect("/profile");
+    }
 
     User.findByIdAndUpdate(req.session.currentUser._id, {address: address})
     .then((userFromDB)=>{
