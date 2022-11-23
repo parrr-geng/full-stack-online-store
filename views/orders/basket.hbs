@@ -1,4 +1,3 @@
-
 <div>
     <h2 class="text-xl m-2">CART</h2>
     <div class="grid grid-cols-3 mt-5">
@@ -12,18 +11,21 @@
                         </div>
                         <div class="text-right">
                             <h3 class="font-bold">{{title}}</h3>
-                            <h3>{{price}}</h3>
+                            <h3>€{{price}}</h3>
                             <br>
-                            <form action="/products/{{_id}}/togglecart" method="POST">
+                            <form action="/products/{{_id}}/removefromcart" method="POST">
                                 <button>Remove from the cart</button>
                             </form>
                         </div>
                     </div>
                 {{/each}}
-
-                <h4 class="text-right" id="totalPrice">Total: <span>{{totalPrice}}</span></h4>
-                <div class="block">
-                    <button class="space-x-3 items-center px-3 py-2 bg-green-400 hover:border rounded-full focus:ring focus:ring-black"><a href="/checkout">Proceed to Checkout</a></button>
+                <br>
+                <br>
+                <h4 class="text-l" id="totalPrice">TOTAL: €<span>{{totalPrice}}</span></h4>
+                <br>
+                <hr>
+                <div class="mt-5 block">
+                    <button class="space-x-3 items-center px-3 py-2 bg-green-400 hover:border rounded-full focus:ring focus:ring-black"><a href="/checkout">PROCEED TO CHECKOUT</a></button>
                 </div>
                 
                 {{else}}

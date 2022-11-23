@@ -1,18 +1,19 @@
 {{#if userInSession}}
-<div class="text-2xl">MY ACCOUNT</div>
+<div class="text-xl ">MY ACCOUNT</div>
 <br>
 <div class="grid grid-cols-3">
     <div class="col-span-2">
-        <p class="my-5">MY LISTINGS</p> 
+        <p class="text-l">MY LISTINGS</p> 
         {{#each products}}
             <br>
             <div class="grid grid-cols-3">
                 <div class="col-span-1">
-                    <a href="/products/{{_id}}"><img class="w-48" src="{{imgPath}}" alt="Photo for {{name}}"></a>
+                    <a href="/products/{{_id}}"><img class="w-48" src="{{image}}" alt="Photo for {{name}}"></a>
                 </div>
-                <div class="col-span-1">
-                    <h2 class="mt-4">{{title}}</h2>
+                <div class="col-span-1 flex flex-col justify-between">
+                    <h2 class="font-bold">{{title}}</h2>
                     <h4>{{description}}</h4>
+                    <h4>€{{price}}</h4>
                 </div>
                 <div class="col-span-1">
                     <a href="products/{{_id}}/delete">🗑️</a>
@@ -23,14 +24,17 @@
             <h2>There are no listings yet.</h2>
         {{/each}} 
         <br>
-        <button class="border space-x-3 items-center px-3 py-2"><a href="/profile/add-product">ADD A LISTING</a></button>
+        <hr>
+        <button class="border space-x-3 items-center px-3 py-2"><a href="/profile/add-product"> + ADD A LISTING</a></button>
     </div>
     <div class="col-span-1">
-        <h2>ACCOUNT DETAILS</h2>
-        <h2>Hi {{userInSession.firstName}}!</h2>
-        <h2>Email:{{userInSession.email}}</h2>
+        <h2 class="text-l">ACCOUNT DETAILS</h2>
+        <br>
+        <h2>Hello {{userInSession.firstName}}!</h2>
+        <h2>Email: {{userInSession.email}}</h2>
         <h2>Manage Your Addresses</h2>
-        <a href="/logout">Logout</a>
+        <br><br>
+        <a href="/logout">LOGOUT</a>
     </div>
     
 </div>

@@ -42,6 +42,15 @@ router.get("/products/kids", (req, res, next)=>{
   .catch(err => console.log(err));
 });
 
+//Get women page
+router.get("/products/sports", (req, res, next)=>{
+  Product.find({category: "sports"})
+  .then((productsFromDB)=>{
+    res.render("products/women-products.hbs", {products: productsFromDB});
+  })
+  .catch(err => console.log(err));
+});
+
 // Get about page
 router.get("/about", (req, res, next) => {
   res.render('information/about.hbs');
