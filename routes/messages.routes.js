@@ -1,5 +1,5 @@
-// const router = require("express").Router();
-// const mongoose = require("mongoose");
+const router = require("express").Router();
+const mongoose = require("mongoose");
 
 // const User = require("../models/User.model");
 // const Product = require("../models/product.model");
@@ -33,4 +33,4 @@
 //         res.sendStatus(200)
 //     })
 // })
-// module.exports = router;
+module.exports = router;
