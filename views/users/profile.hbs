@@ -1,20 +1,22 @@
 {{#if userInSession}}
-<h2 class="text-xl m-2">MY ACCOUNT</h2>
-
-<div class="flex flex-row justify-between">
+<div class="text-xl font-bold">MY ACCOUNT</div>
+<div class="grid grid-cols-2">
     <div>
-        <h2>MY LISTINGS</h2>
+        <p class="my-5">MY LISTINGS</p>
+        <div class="mt-3">
+             {{#each products}}
+                <h2 class="mt-4">{{title}}</h2>
+                <h4>{{description}}</h4>
+                <a href="/products/{{_id}}"><img class="w-48" src="{{imgPath}}" alt="Photo for {{name}}"></a>
+                <h3>Delete this listing 
+                    <a href="products/{{_id}}/delete">❌</a>
+                </h3>
+            {{else}}
+                <h2>There are no listings yet.</h2>
+            {{/each}}
 
-        {{#each products}}
-            <h2 class="mt-4">{{title}}</h2>
-            <h4>{{description}}</h4>
-            <a href="/products/{{_id}}"><img class="w-48" src="{{imgPath}}" alt="Photo for {{name}}"></a>
-            <h3>Delete this listing 
-                <a href="products/{{_id}}/delete">❌</a>
-            </h3>
-        {{else}}
-	        <h2>There are no listings yet.</h2>
-        {{/each}}
+        </div>
+       
 
         <a href="/profile/add-product">ADD A LISTING</a>
 

@@ -1,13 +1,31 @@
-<h2 class="text-xl m-2">CREATE ACCOUNT</h2>
+<div class="grid grid-cols-3">
+    <div>
+        <h2 class="text-xl">CREATE ACCOUNT</h2>
+        <form class="grid grid-cols-1" action="/signup" method="POST">
+            <label class="block mt-1" for="firstName"></label>
+            <input class="block py-3" type="text" name="firstName" placeholder="FIRST NAME">
+            
+            <label class="block" for="lastName"><br></label>
+            <input class="block" type="text" name="lastName" placeholder="LAST NAME">
+        
+            <label class="block" for="email"><br></label>
+            <input class="border w-40" type="email" name="email" placeholder="EMAIL" required>
+            
+            <label class="block" for="password"><br></label>
+            <input class="border w-40" type="password" name="password" placeholder="PASSWORD" required>
+            
+            <br>
+            <div>
+                <button class="btn" type="submit">CREATE</button>
+            </div>
+        </form>
 
-<form class="flex flex-col" action="/signup" method="POST">
-    <input class="border w-40" type="text" name="firstName" placeholder="FIRST NAME">
-    <input class="border w-40" type="text" name="lastName" placeholder="LAST NAME">
-    <input class="border w-40" type="email" name="email" placeholder="EMAIL" required>
-    <input class="border w-40" type="password" name="password" placeholder="PASSWORD" required>
-    <button class="" type="submit">CREATE</button>
-</form>
+        {{#if message}}
+        <h4>{{message}}</h4>
+        {{/if}}
+    </div>
+    <div></div>
+    <div></div>
+    
+</div>
 
-{{#if message}}
-<h4>{{message}}</h4>
-{{/if}}

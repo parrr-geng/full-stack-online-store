@@ -1,20 +1,35 @@
-<h2 class="mt-5 text-xl">LOGIN</h2>
-<form class="mt-3 flex flex-col" action="/login" method="POST">
-    <label for="email">E-Mail Address: </label>
-	<input class="rounded-md bg-gray-200" type="text" name="email">
-	
-    <label for="password">Password: </label>
-    <input type="password" name="password">
-	   
-    <label for="remember">Remember Me</label>
-    <input type="checkbox" name="remember">
+<h2 class="text-xl">LOGIN</h2>
+<div class="grid grid-cols-3">
+    <div>
+        <form class="grid grid-cols-1" action="/login" method="POST">
+            <label class="block" for="email"> <br> </label>
+            <input class="mt-1
+                        block
+                        " type="text" name="email" placeholder="EMAIL" required>
+            
+            <label class="block" for="password"> <br> </label>
+            <input type="password" name="password" placeholder="PASSWORD" required>
 
-    <button class="rounded bg-red" type="submit">Login</button>
-</form>
-<ul>
-    <li><a href="/forgot-password">Forgot My Password</a></li>
-    <li><a href="/signup">Create Account</a></li>
-</ul>
+            <label class="block" for="remember">
+                <small>
+                    REMEMBER ME<input type="checkbox" name="remember">
+                </small>
+            </label>
+            <br>
+            <div class="block">
+                <button class="btn" type="submit">LOG IN</button>
+            </div>
+        </form>
+
+    </div>
+    <div></div>
+    <div class="grid grid-cols-1">
+        <a class="block font-sm text-gray-400" href="/forgot-password">FORGOT MY PASSWORD</a>
+        <a class="block text-sky-400" href="/signup">CREATE ACCOUNT</a>
+    </div>
+    
+</div>
+
 
 {{#if message}}
 	<h4 class="error">{{message}}</h4>
