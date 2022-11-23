@@ -1,27 +1,33 @@
 <div>
     <div>
-        <h1>Contact Us</h1>
+        <h1 class="text-xl">CONTACT US</h1>
         <p>Have questions or comments? We'd love to hear from you!</p>
     </div>
+    <br>
 
-    <div>
-        <form action="/contact" method="post" class="contact">
-            <div class="form-contact">
-                <label for="email">Email address</label>
-                <input type="email" id="email" name="email" placeholder="enter email" required>
-                <small class="break-after-auto" id="emailhelp">We'll never share your email with anyone else.</small>
+    <div class="grid grid-cols-2">
+        <form class="flex flex-col" action="/contact" method="post" class="contact">
+            <div>
+                <!-- <label for="email">Email address <br></label> -->
+                <input class="block" type="email" id="email" name="email" placeholder="EMAIL ADDRESS" required>
+                <br>
+                <small class="break-after-auto" id="emailhelp">(We'll never share your email with anyone else.)</small>
             </div>
 
-            <div class="form-contact">
-                <label for="subject">Subject</label>
-                <input type="text" id="subject" name="subject" required>
+            <div class="form-contact mt-5">
+                <!-- <label for="subject">Subject <br></label> -->
+                <input type="text" id="subject" name="subject" placeholder="SUBJECT" required>
             </div>
 
-            <div class="form-contact">
-                <label for="message">Message</label>
-                <input type="textarea" id="message" name="message" required>
+            <div class="form-contact mt-5">
+                <!-- <label for="message">Message<br></label> -->
+                <textarea class="text-gray-600" id="message" name="message" cols="40" rows="6" required>PLEASE WRITE YOUR MESSAGE HERE...</textarea>
             </div>
-            <button value="Send" type="submit">Submit</button>
+            <div class="block mt-5">
+                <button value="Send" type="submit">SEND</button>
+            </div>
+            
         </form>
+        <div></div>
     </div>
 </div>

@@ -6,17 +6,50 @@ router.get("/", (req, res, next)=>{
   res.render("index");
 });
 
-router.get("/all", (req, res, next) => {
+// Display all products
+router.get("/products/all", (req, res, next) => {
   Product.find()
     .then((productInfo) => {
-        res.render('products/all-products.hbs', { products: productInfo});
-    }).catch(err => console.log(err))
-    
+      res.render('products/all-products.hbs', {products: productInfo});
+    })
+    .catch(err => console.log(err)); 
+});
+
+//Get women page
+router.get("/products/women", (req, res, next)=>{
+  Product.find({category: "women's clothing"})
+  .then((productsFromDB)=>{
+    res.render("products/women-products.hbs", {products: productsFromDB});
+  })
+  .catch(err => console.log(err));
+});
+
+//Get men page
+router.get("/products/men", (req, res, next)=>{
+  Product.find({category: "men's clothing"})
+  .then((productsFromDB)=>{
+    res.render("products/women-products.hbs", {products: productsFromDB});
+  })
+  .catch(err => console.log(err));
+});
+
+//Get women page
+router.get("/products/kids", (req, res, next)=>{
+  Product.find({category: "kids clothing"})
+  .then((productsFromDB)=>{
+    res.render("products/women-products.hbs", {products: productsFromDB});
+  })
+  .catch(err => console.log(err));
 });
 
 // Get about page
 router.get("/about", (req, res, next) => {
-  res.render('information/about.hbs')
-})
+  res.render('information/about.hbs');
+});
+
+router.get("/terms-and-conditions", (req, res, next)=>{
+  res.render("information/terms-and-conditions.hbs");
+});
+
 
 module.exports = router;
