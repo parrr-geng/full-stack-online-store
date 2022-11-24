@@ -1,10 +1,12 @@
 <div>
     <h2 class="text-xl m-2">CART</h2>
+    {{#if userInSession}}
     <div class="grid grid-cols-3 mt-5">
         <div class="col-span-2">
             <div class="flex flex-col">
                 {{#if products}}
                 {{#each products}}
+                    <br>
                     <div class="rounded border border-2 grid grid-cols-2">
                         <div class="h-24">
                             <img class="max-h-full w-auto" src="{{image}}" alt="product image">
@@ -29,13 +31,20 @@
                 </div>
                 
                 {{else}}
-                <p>There is nothing in the basket yet.</p>
+                <br>
+                <p>YOUR CART IS EMPTY.</p>
                 {{/if}}
+
+                
 
             </div>
         </div>
         <div></div>
     </div>
+    {{else}}
+                <br>
+                <p>PLEASE <a class="font-bold" href="/login">LOG IN</a> TO USE YOUR CART.</p>
+    {{/if}}
 </div>
 
 

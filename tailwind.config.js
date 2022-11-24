@@ -3,6 +3,10 @@
 module.exports = {
   content: ["./views/*.hbs"],
   theme: {
+    fontFamily: {
+      sans: ['Helvetica', 'sans-serif'],
+      serif: ['Merriweather', 'serif'],
+    },
     extend: {},
   },
   plugins: [
