@@ -1,3 +1,4 @@
+{{#if userInSession}}
 <div class="grid grid-cols-2">
     <div>
         <div class="text-xl">DELIVERY ADDRESS</div>
@@ -41,3 +42,7 @@
     <div></div>
     <div></div>
 </div>
+{{else}}
+<br>
+<p>PLEASE <a class="font-bold" href="/login">LOG IN</a> TO PLACE YOUR ORDER</p>
+{{/if}}
