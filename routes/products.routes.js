@@ -13,13 +13,13 @@ router.get("/profile/add-product", (req, res, next)=>{
 router.post("/profile/add-product", uploader.single("productImage"), (req, res, next)=>{
     const {title, price, description, category} = req.body;
     const imgName = req.file.originalname;
-    const imgPath = req.file.path;
+    const image = req.file.path;
     const publicId = req.file.filename;
     const seller = req.session.currentUser._id;
     console.log(publicId);
     console.log(seller);
 
-    Product.create({title, price, description, category, imgName, imgPath, publicId, seller})
+    Product.create({title, price, description, category, imgName, image, publicId, seller})
     .then(product => {
         console.log(product);
         res.redirect("/profile") 
@@ -49,10 +49,7 @@ router.post("/products/:productId/togglecart", (req, res, next)=>{
     Product.findById(productId)
     .then(product => {
         if(product.isInCart){
-            Product.findByIdAndUpdate(productId, {isInCart: false})
-            .then(()=>{
-                res.redirect("/cart");
-            })
+            res.render("products/product-details.hbs", {product: product, message: "It's already placed in the cart."});
         } else {
             Product.findByIdAndUpdate(productId, {isInCart: true})
             .then(productFromDB=>{
@@ -63,6 +60,15 @@ router.post("/products/:productId/togglecart", (req, res, next)=>{
     .catch(error => console.log(error));
 });
 
+router.post("/products/:productId/removefromcart", (req, res, next)=>{
+    const { productId } = req.params;
+
+    Product.findByIdAndUpdate(productId, {isInCart: false})
+    .then(() => {
+        res.redirect("/cart");
+    })
+    .catch(error => console.log(error));
+})
 
 
 module.exports = router;
