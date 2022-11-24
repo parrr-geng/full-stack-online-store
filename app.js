@@ -9,6 +9,13 @@ require("./db");
 // https://www.npmjs.com/package/express
 const express = require("express");
 
+// Use body parser to parse middlewares
+/*
+const bodyparser = require('body-parser');
+app.use(bodyparser.urlencoded({extended:false}))
+app.use(bodyparser.json())
+*/
+
 // Handles the handlebars
 // https://www.npmjs.com/package/hbs
 const hbs = require("hbs");
@@ -40,6 +47,7 @@ app.use("/", contactFormRoutes)
 
 const ordersRoutes = require("./routes/orders.routes");
 app.use("/", ordersRoutes);
+
 
 // const messagesRoutes = require ("./routes/messages.routes")
 // app.use("/", messagesRoutes)
