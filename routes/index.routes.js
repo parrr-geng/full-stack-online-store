@@ -51,6 +51,11 @@ router.get("/products/sports", (req, res, next)=>{
   .catch(err => console.log(err));
 });
 
+//Get location page
+router.get("/location", (req, res, next)=>{
+  res.render('location.hbs')
+})
+
 // Get about page
 router.get("/about", (req, res, next) => {
   res.render('information/about.hbs');
