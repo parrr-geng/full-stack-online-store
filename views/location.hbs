@@ -1,5 +1,41 @@
-<div class="w-48" id="map"></div>
-<script>
-    
+<div class="text-xl">LOCATION</div>
+<br>
+<p>Find a store to browse and test the listed products listed by local T.O.R.P.S users.</p>
+<br>
+<div style="margin: 0; width: 45vw; height: 45vh" id="map"></div>
 
+
+<script>
+    mapboxgl.accessToken = "pk.eyJ1IjoidGhiaCIsImEiOiJjbDJhZGVvbTgwMmQ2M2RucmliNXIwaDZ0In0.RrDkM5Omdqkq1EM_FXPxaQ"
+    const map = new mapboxgl.Map({
+        container: "map", // Container id
+        style: "mapbox://styles/mapbox/satellite-streets-v12", //more styles on it's API documentation
+        center: [13.4, 52.5], //starting geographical position
+        zoom: 10, //how the zoom level is at the beginning of the map
+        projection: "globe"
+    });
+
+    //Add navigation
+    const nav = new mapboxgl.NavigationControl();
+    map.addControl(nav, "top-left");
+
+    const popup = new mapboxgl.Popup({ offset: 25 }).setText(
+    'T.O.R.P.S Berlin'
+    );
+
+    new mapboxgl.Marker({
+        color: "red"
+    })
+    .setLngLat([13.4, 52.5])
+    .setPopup(popup)
+    .addTo(map)
+
+    function returnMapUrl(){
+        return "http://maps.google.com/?ll="+"13.4"+','+"52.5";
+    };
+
+    const el = document.getElementById("map");
+    el.addEventListener("click", )
+
+  
 </script>
