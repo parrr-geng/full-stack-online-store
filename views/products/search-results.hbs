@@ -1,0 +1,18 @@
+<h2>Results for: {{search}}</h2>
+
+<div class="grid grid-cols-3 gap-6">
+    {{#each products}}
+     <div class="flex flex-col justify-between">
+        <a href="/products/{{_id}}">
+            <img class="max-w-full h-auto" src="{{image}}" alt="product image" >
+        </a>
+        {{!-- <div class="flex flex-row justify-between h-12"> --}}
+            <p>{{title}}</p>
+            <p>{{price}}</p>
+            {{#each rating}}
+                <p>{{rate}}/5</p>
+            {{/each}}
+        {{!-- </div>     --}}
+     </div>
+    {{/each}}
+</div>

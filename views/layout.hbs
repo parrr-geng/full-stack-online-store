@@ -11,13 +11,13 @@
 	   <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
    </head>
 
-   <body>
+   <body class="bg-white">
       <!-- for the whole screen-->
       <div class="flex flex-col">
          <div class="grid grid-cols-3">
             <div class="p-3 flex flex-col justify-between">
                <nav>
-                  <ul class="text-l">
+                  <ul class="text-l text-black">
                      <li><a href="/" class="font-bold text-2xl">HOME</a></li>
                      <li><a href="">SPORTS</a></li>
                      <li><a href="/products/women">WOMEN</a></li>
@@ -35,8 +35,8 @@
 
             <div class="p-3 flex flex-col col-span-2">
                <div class="h-10">
-                  <form action="/search" method="POST">
-                     <input class="border-gray-200" type="text" name="search" placeholder="SEARCH">
+                  <form action="/search-results" method="POST">
+                     <input id="search" class="border-gray-200" type="search" name="search" placeholder="SEARCH">
                      <button class="space-x-3 items-center px-3 py-2 bg-white hover:border rounded-full focus:ring-2 focus:ring-black">
                      <span class="text-white text-l font-bold">🔍</span>
                      </button>

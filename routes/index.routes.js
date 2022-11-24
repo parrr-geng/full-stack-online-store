@@ -51,5 +51,22 @@ router.get("/terms-and-conditions", (req, res, next)=>{
   res.render("information/terms-and-conditions.hbs");
 });
 
+// Search results
+router.post("/search-results", (req, res, next) => {
+  const search = req.body.search;
+  console.log(search)
+  let matchingProducts = [];
+  Product.find({})
+  .then((productsFromDB) => {
+    console.log(productsFromDB)
+    //const newArray = productsFromDB.filter(element => element.title.includes(searchKey))
+    for(let data of productsFromDB) {
+      if(data.title.toLowerCase().search(search.toLowerCase()) != -1) {
+        matchingProducts.push(data);
+      }
+    }
+    res.render('products/search-results.hbs', {products: matchingProducts, search})
+  })
+})
 
 module.exports = router;
