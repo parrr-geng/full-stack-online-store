@@ -55,8 +55,8 @@ router.post("/placemyorder", (req, res, next)=>{
 });
 
 // Stripe setup
-let Stripe_Key = "pk_test_Fvte6KjQ4hOb7eYuZgX9HfhQ";
-let Secret_Key = "sk_test_51DNKaXGmBGh2mgCniSN73ATfp2eUsGE23ywDXLqMDGPUYAygWG4JDaeCRC6Me3gyUtaoBFqPCfhzHn4hmAo4R1qw00d0XkHlNS";
+let Stripe_Key = "pk_test_Fvte6KjQ4hOb7eYuZgX9HfhQ"
+let Secret_Key = "sk_test_51DNKaXGmBGh2mgCniSN73ATfp2eUsGE23ywDXLqMDGPUYAygWG4JDaeCRC6Me3gyUtaoBFqPCfhzHn4hmAo4R1qw00d0XkHlNS"
 const stripe = require("stripe")(Secret_Key);
 
 router.post("/pay", (req, res, next)=>{
