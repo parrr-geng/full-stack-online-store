@@ -55,8 +55,10 @@ router.post("/placemyorder", (req, res, next)=>{
 });
 
 // Stripe setup
+
 let Stripe_Key = "pk_test_Fvte6KjQ4hOb7eYuZgX9HfhQ";
 let Secret_Key = "STRIPE_SECRET_KEY";
+
 const stripe = require("stripe")(Secret_Key);
 
 router.post("/pay", (req, res, next)=>{

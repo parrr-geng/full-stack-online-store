@@ -44,9 +44,9 @@ router.post("/contact", (req, res, next) => {
         } else {
             console.log('Message sent successfuly!')
             transporter.sendMail(mailResponse,(error, info))
-            setTimeout(function() { alert("Sent!"); }, 3000);
+            //setTimeout(function() { alert("Sent!"); }, 3000);
             res.redirect("/contact")
-            setTimeout(function() { alert("Sent!"); }, 3000);
+           // setTimeout(function() { alert("Sent!"); }, 3000);
         }
     });
 });

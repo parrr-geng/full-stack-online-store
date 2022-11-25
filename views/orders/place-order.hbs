@@ -19,48 +19,44 @@
                 <div></div>
                 <div>
                     <!-- Stripe payment method -->
-                  
+
                     <form action="/pay" method="POST">
-                    <script
-                        src="//checkout.stripe.com/v2/checkout.js"
-                        class="stripe-button"
-                        data-key="<%= key %>"
-                        data-amount="{{totalPrice}}"
-                        data-currency="EUR"
-                        data-name="TORPS"
-                        data-description="Stripe Payment"
-                        data-locale="auto" >
-                    </script>
+                        <script src="//checkout.stripe.com/v2/checkout.js" class="stripe-button" data-key="<%= key %>"
+                            data-amount="{{totalPrice}}" data-currency="EUR" data-name="TORPS"
+                            data-description="Stripe Payment" data-locale="auto">
+                            </script>
                     </form>
                 </div>
-                
+
             </div>
-            
-        
+
+
         </div>
         <br>
         <div>
             <h3 class="text-l">REVIEW YOUR ITEMS</h3>
             <h4 class="text-l mb-3" id="totalPrice">TOTAL: <span>{{totalPrice}}</span></h4>
             {{#each products}}
-                <div class="grid grid-cols-3">
-                    <div class="h-24">
-                        <img class="h-12 items-center" src="{{image}}" alt="product image">
-                    </div>
-                    <div class="text-right">
-                        <h3>{{title}}</h3>
-                        <h3>€{{price}}</h3>
-                        <br>
-                    </div>
-                    <div></div>
+            <div class="grid grid-cols-3">
+                <div class="h-24">
+                    <img class="h-12 items-center" src="{{image}}" alt="product image">
                 </div>
+                <div class="text-right">
+                    <h3>{{title}}</h3>
+                    <h3>€{{price}}</h3>
+                    <br>
+                </div>
+                <div></div>
+            </div>
             {{/each}}
         </div>
-    
+
     </div>
     <div>
         <form action="/pay" method="POST">
-            <button class="font-bold space-x-3  px-3 py-2 bg-green-400 hover:border rounded-full focus:ring focus:ring-black">BUY NOW</button>
+            <button
+                class="font-bold space-x-3  px-3 py-2 bg-green-400 hover:border rounded-full focus:ring focus:ring-black">BUY
+                NOW</button>
         </form>
     </div>
 </div>
@@ -74,6 +70,8 @@
 
 
 <script>
+    let price = document.querySelector('#totalPrice').value;
+    console.log(price)
     import { loadScript } from "@paypal/paypal-js";
     let paypal;
     try {
@@ -90,42 +88,23 @@
         }
     }
     paypal.Buttons({
-        style: {
-            layout: 'horizontal',
-            color: 'silver',
-            shape: 'rect',
-            label: 'paypal'
-        },
         // Order is created on the server and the order id is returned
-        createOrder: (data, actions) => {
-            return fetch("/api/orders", {
-                method: "post",
-                // use the "body" param to optionally pass additional order information
-                // like product ids or amount
-            })
-                .then((response) => response.json())
-                .then((order) => order.id);
+        createOrder: function (data, actions) {
+            return actions.order.create({
+                purchase_units: [
+                    {
+                        amount: {
+                            value: '77',
+                    },
+                    },
+                ],
+            }),
         },
         // Finalize the transaction on the server after payer approval
-        onApprove: (data, actions) => {
-            return fetch(`/api/orders/${data.orderID}/capture`, {
-                method: "post",
+        onApprove: function (data, actions) {
+            return actions.order.capture().then(function(details) {
+                alert("Transaction completed by " + details.payer.name.given_name)
             })
-                .then((response) => response.json())
-                .then((orderData) => {
-                    // Successful capture! For dev/demo purposes:
-                    console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
-                    const transaction = orderData.purchase_units[0].payments.captures[0];
-                    alert(`Transaction ${transaction.status}: ${transaction.id}\n\nSee console for all available details`);
-                    // When ready to go live, remove the alert and show a success message within this page. For example:
-                    // const element = document.getElementById('paypal-button-container');
-                    // element.innerHTML = '<h3>Thank you for your payment!</h3>';
-                    // Or go to another URL:  actions.redirect('thank_you.html');
-                });
         },
-
     }).render('#paypal-button-container');
 </script>
-
-
-
