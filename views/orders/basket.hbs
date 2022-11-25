@@ -1,41 +1,55 @@
 <div>
     <h2 class="text-xl m-2">CART</h2>
+    {{#if userInSession}}
     <div class="grid grid-cols-3 mt-5">
         <div class="col-span-2">
             <div class="flex flex-col">
                 {{#if products}}
                 {{#each products}}
-                    <div class="rounded border border-2 grid grid-cols-2">
+                    <br>
+                    <div class="rounded border border-2 grid grid-cols-3">
                         <div class="h-24">
                             <img class="max-h-full w-auto" src="{{image}}" alt="product image">
                         </div>
-                        <div class="text-right">
-                            <h3 class="font-bold">{{title}}</h3>
-                            <h3>€{{price}}</h3>
-                            <br>
-                            <form action="/products/{{_id}}/removefromcart" method="POST">
-                                <button>Remove from the cart</button>
+                        <div style="margin-left: 10px">
+                            <h3>{{title}}</h3>
+                            <h3>€{{price}}</h3>                         
+                        </div>
+                        <div>
+                            <form style="text-align:right" action="/products/{{_id}}/removefromcart" method="POST">
+                                <button>X</button>
                             </form>
                         </div>
                     </div>
                 {{/each}}
                 <br>
+
                 <br>
                 <h4 class="text-l" name="totalPrice" id="totalPrice">TOTAL: €<span>{{totalPrice}}</span></h4>
+
+
                 <br>
                 <hr>
-                <div class="mt-5 block">
+                <br>
+                <div class="mt-5 block" style="text-align:right">
                     <button class="space-x-3 items-center px-3 py-2 bg-green-400 hover:border rounded-full focus:ring focus:ring-black"><a href="/checkout">PROCEED TO CHECKOUT</a></button>
                 </div>
                 
                 {{else}}
-                <p>There is nothing in the basket yet.</p>
+                <br>
+                <p>YOUR CART IS EMPTY.</p>
                 {{/if}}
+
+                
 
             </div>
         </div>
         <div></div>
     </div>
+    {{else}}
+        <br>
+        <p>PLEASE <a class="font-bold" href="/login">LOG IN</a> TO USE YOUR CART.</p>
+    {{/if}}
 </div>
 
 

@@ -1,15 +1,21 @@
-<div class="grid grid-cols-3 gap-6">
+<div class="grid grid-cols-3">
     {{#each products}}
-     <div class="flex flex-col justify-between">
-        <a class="m-4 p-4" href="/products/{{_id}}">
-            <img class="max-w-full h-auto" src="{{image}}" alt="product image" >
-        </a>
-        <div class="flex flex-row justify-between h-12">
-            <p>{{title}}</p>
-            <p>€{{price}}</p>
+     <div style="margin: 15px; margin-left: 0" class="flex flex-col justify-between">   
+        <div style="padding: 40px; width:320px; height: 360px; display:flex; justify-content: center; align-items: center">
+            <a href="/products/{{_id}}">
+                <img style="width: 85%; height:auto" src="{{image}}" alt="product image" >
+            </a>
+        </div>
+        <div class="flex flex-row justify-between h-12 mt-3">
+            <div>
+                <p>{{title}}</p>
+            </div>
+            
             {{#each rating}}
                 <p>{{rate}}/5</p>
             {{/each}}
+            <p>€{{price}}</p>
+            
         </div>    
      </div>
     {{/each}}
